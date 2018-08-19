@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { trigger,style,transition,animate,keyframes,query,stagger } from '@angular/animations';
-import { DataService } from '../data.service';
+import {Component, OnInit} from '@angular/core';
+import {trigger, style, transition, animate, keyframes, query, stagger} from '@angular/animations';
+import {DataService} from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import { DataService } from '../data.service';
 
     trigger('goals', [
       transition('* => *', [
-        query(':enter', style({ opacity: 0 }), {optional: true}),
+        query(':enter', style({opacity: 0}), {optional: true}),
 
         query(':enter', stagger('300ms', [
           animate('.6s ease-in', keyframes([
@@ -37,7 +37,8 @@ export class HomeComponent implements OnInit {
   goalText: string = 'My first life goal';
   goals = [];
 
-  constructor(private _data: DataService) { }
+  constructor(private _data: DataService) {
+  }
 
   ngOnInit() {
     this._data.goal.subscribe(res => this.goals = res);
